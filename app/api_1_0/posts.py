@@ -439,6 +439,12 @@ def beActive(schedule,date):
     print(">>>beActive[%s][%s]" % (_date,date))
     for _i in range(0,5):
         if _date[_i]!='*':
+            """2016.2.25：增加 %n 条件
+               用于 % 计算，可控制到 每n分/小时
+               例如：
+                    %5 * * * *
+                    表示每5分钟调度一次
+            """
             if _date[_i][0]=='%':
                 n = int(_date[_i][1:])
                 if n>1 and (int(date[_i]) % n !=0):
